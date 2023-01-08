@@ -1,0 +1,125 @@
+#VRML_SIM R2022b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/factory/containers/protos/CardboardBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/floors/protos/Floor.proto"
+
+WorldInfo {
+  basicTimeStep 20
+}
+Viewpoint {
+  orientation -0.02037143212283854 -0.9928162593746379 0.11790199266601188 5.9387097283655335
+  position -5.254131836012322 -0.7316324450617322 2.132665212149844
+}
+CardboardBox {
+  translation -0.29388 -0.155489 0.17
+  size 0.21 0.21 0.21
+  mass 0.6
+}
+CardboardBox {
+  translation -0.597615 0.516547 0.12
+  rotation 0 0 -1 -5.307179586466759e-06
+  name "cardboard box(1)"
+  size 0.21 0.21 0.21
+  mass 0.6
+}
+E-puck {
+  translation -0.00540887 0.560058 0
+  controller "EPuckGoForward"
+}
+CardboardBox {
+  translation 0.27786 0.0660144 0.11
+  name "cardboard box(2)"
+  size 0.21 0.21 0.21
+  mass 0.6
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+  size 2.5 2.5
+}
+Solid {
+  translation 0.536107 0.56772 0.48
+  children [
+    DEF ball Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 0.9
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.14
+        subdivision 2
+      }
+    }
+  ]
+  boundingObject USE ball
+  physics Physics {
+  }
+}
+Solid {
+  translation -0.0635232 -0.363623 0.48
+  children [
+    DEF ball Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 0.9
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.14
+        subdivision 2
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE ball
+  physics Physics {
+  }
+}
+Solid {
+  translation 0 1.23 0.05
+  children [
+    DEF wall Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        metalness 0
+      }
+      geometry Box {
+        size 2.5 0.05 0.1
+      }
+    }
+  ]
+  name "solid(2)"
+}
+Solid {
+  translation 0 -1.21 0.05
+  children [
+    USE wall
+  ]
+  name "solid(3)"
+}
+Solid {
+  translation 1.22251 0.00836816 0.03
+  rotation 0 0 1 -1.5707953071795862
+  children [
+    USE wall
+  ]
+  name "solid(4)"
+}
+Solid {
+  translation -1.22 -1.24397e-06 0.03
+  rotation 0 0 1 -1.5707953071795862
+  children [
+    USE wall
+  ]
+  name "solid(5)"
+}

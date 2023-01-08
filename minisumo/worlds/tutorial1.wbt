@@ -1,0 +1,44 @@
+#VRML_SIM R2022b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/factory/containers/protos/CardboardBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+
+WorldInfo {
+  basicTimeStep 20
+}
+Viewpoint {
+  orientation 0.1962122981490743 0.73875471970408 -0.6447807365066087 0.781466883052832
+  position -2.157744561971324 1.2910784091852965 1.9235971287475289
+}
+CardboardBox {
+  translation -0.29388 -0.155489 0.3
+  size 0.21 0.21 0.21
+  mass 0.6
+}
+CardboardBox {
+  translation -0.597615 0.516547 0.3
+  name "cardboard box(1)"
+  size 0.21 0.21 0.21
+  mass 0.6
+}
+E-puck {
+  controller "EPuckGoForward"
+}
+CardboardBox {
+  translation 0.27786 0.0660144 0.3
+  name "cardboard box(2)"
+  size 0.21 0.21 0.21
+  mass 0.6
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 1.65 1.6
+  floorTileSize 0.2 0.4
+  wallHeight 0.23
+}

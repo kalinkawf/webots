@@ -1,0 +1,161 @@
+#VRML_SIM R2022b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/factory/containers/protos/CardboardBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/appearances/protos/OldSteel.proto"
+
+WorldInfo {
+  basicTimeStep 20
+}
+Viewpoint {
+  fieldOfView 1
+  orientation 0.04388975312458702 0.056284692519346625 0.9974496092327999 4.95606281549948
+  position -0.48887687601784513 2.128043940468043 0.36341124159045085
+}
+CardboardBox {
+  translation -0.86388 0.254511 0.10485282668072807
+  rotation 0.9822520004364723 -0.15509242112154553 -0.10548624815209433 2.4348506290210698e-17
+  size 0.21 0.21 0.21
+  mass 0.6
+}
+Solid {
+  translation 0 0 0.4
+  children [
+    DEF G0 Group {
+      children [
+        Transform {
+          translation 0 0 0.15
+          children [
+            DEF GLOBE Shape {
+              appearance PBRAppearance {
+              }
+              geometry Sphere {
+                radius 0.1
+                subdivision 2
+              }
+            }
+          ]
+        }
+        Transform {
+          translation 0 0 -0.15
+          children [
+            USE GLOBE
+          ]
+        }
+        Shape {
+          appearance PBRAppearance {
+          }
+          geometry Cylinder {
+            height 0.3
+            radius 0.02
+          }
+        }
+      ]
+    }
+  ]
+  name "solid(6)"
+  physics Physics {
+    mass 2
+    centerOfMass [
+      0 0 0.01
+    ]
+  }
+}
+E-puck {
+  translation 0.06947102524198681 0.5600580094554078 -3.9972054430431614e-05
+  rotation -2.7803582741314656e-06 0.9999999998346719 -1.7970143225269327e-05 0.0005254943615711995
+  controller "EPuckAvoidCollision"
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+  size 2.5 2.5
+}
+Solid {
+  translation 0.536107 0.56772 0.12872427710639378
+  children [
+    DEF ball Shape {
+      appearance OldSteel {
+      }
+      geometry Sphere {
+        radius 0.14
+        subdivision 2
+      }
+    }
+  ]
+  boundingObject USE ball
+  physics Physics {
+  }
+}
+Solid {
+  translation -0.0635232 -0.363623 0.12872435360064866
+  children [
+    DEF ball Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "red_brick_wall.jpg"
+          ]
+        }
+        roughness 1
+      }
+      geometry Sphere {
+        radius 0.14
+        subdivision 2
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE ball
+  physics Physics {
+  }
+}
+Solid {
+  translation 0 1.23 0.05
+  children [
+    DEF wall Shape {
+      appearance PBRAppearance {
+        baseColor 0 1 1
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        roughness 0.4
+        metalness 0
+      }
+      geometry Box {
+        size 2.5 0.05 0.1
+      }
+    }
+  ]
+  name "solid(2)"
+}
+Solid {
+  translation 0 -1.21 0.05
+  children [
+    USE wall
+  ]
+  name "solid(3)"
+}
+Solid {
+  translation 1.22251 0.00836816 0.03
+  rotation 0 0 1 -1.5707953071795862
+  children [
+    USE wall
+  ]
+  name "solid(4)"
+}
+Solid {
+  translation -1.22 -1.24397e-06 0.03
+  rotation 0 0 1 -1.5707953071795862
+  children [
+    USE wall
+  ]
+  name "solid(5)"
+}
